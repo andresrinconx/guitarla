@@ -5,11 +5,12 @@ import { GuitarlaContext } from "@/context/GuitarlaContext"
 import { GuitarraCarritoInterface } from "@/interfaces/GuitarraCarrito"
 
 async function getGuitarra(path: string) {
-  const res = await fetch(`http://192.168.88.231:1337/api/guitarras?filters[url]=${path}&populate=imagen`)
+  const res = await fetch(`https://guitarla-strapi-485d.onrender.com/api/guitarras?filters[url]=${path}&populate=imagen`)
   return res.json()
 }
 
 export default function Page({ params }: { params: { url: string } }) {
+  const [mostrar, setMostrar] = useState(false)
   const [cantidad, setCantidad] = useState(0)
   const [nombre, setNombre] = useState('')
   const [descripcion, setDescripcion] = useState('')
@@ -33,6 +34,7 @@ export default function Page({ params }: { params: { url: string } }) {
       setPrecio(precio)
       setImagen(url)
       setId(id)
+      setMostrar(true)
     }
     fetchData()
   }, [])
@@ -61,41 +63,49 @@ export default function Page({ params }: { params: { url: string } }) {
   }
 
   return (
-    <div className="mb-10 mx-20 flex items-center md:flex-row md:mx-64">
-      <Image
-        src={imagen}
-        alt={'hola'}
-        width={200}
-        height={200}
-      />
-      <div className="md:w-3/5 md:flex md:flex-col md:justify-center">
-        <h1 className="uppercase text-[#d88506] font-bold mb-5">{nombre}</h1>
-        <p className="line-clamp-6">{descripcion}</p>
-        <p className="text-[#d88506] font-extrabold text-2xl my-3">${precio}</p>
+    <>
+      {mostrar
+        ? (
+          <div className="mb-10 mx-20 flex items-center md:flex-row md:mx-64">
+            <Image
+              src={imagen}
+              alt={'hola'}
+              width={200}
+              height={200}
+            />
+            <div className="md:w-3/5 md:flex md:flex-col md:justify-center">
+              <h1 className="uppercase text-[#d88506] font-bold mb-5">{nombre}</h1>
+              <p className="line-clamp-6">{descripcion}</p>
+              <p className="text-[#d88506] font-extrabold text-2xl my-3">${precio}</p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <label htmlFor="cantidad">Cantidad</label>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <label htmlFor="cantidad">Cantidad</label>
 
-          <select
-            onChange={(e) => setCantidad(Number(e.target.value))}
-            id="cantidad"
-            className="px-4 py-2 border border-black"
-          >
-            <option value="0">-- Seleccione --</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
+                <select
+                  onChange={(e) => setCantidad(Number(e.target.value))}
+                  id="cantidad"
+                  className="px-4 py-2 border border-black"
+                >
+                  <option value="0">-- Seleccione --</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
 
-          <input
-            className="bg-black hover:bg-[#d88506] transition duration-500 ease-in-out uppercase text-white px-4 py-2"
-            type="submit"
-            value={"Agregar al carrito"}
-          />
-        </form>
-      </div>
-    </div>
+                <input
+                  className="bg-black hover:bg-[#d88506] transition duration-500 ease-in-out uppercase text-white px-4 py-2"
+                  type="submit"
+                  value={"Agregar al carrito"}
+                />
+              </form>
+            </div>
+          </div>
+        ) : (
+          <div></div>
+        )
+      }
+    </>
   )
 }

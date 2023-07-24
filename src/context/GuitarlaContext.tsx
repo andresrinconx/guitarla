@@ -19,8 +19,8 @@ export const GuitarlaContext = createContext<{
 
 export const GuitarlaProvider = ({ children }: { children: React.ReactNode}) => {
 
-  const carritoLS = JSON.parse(localStorage.getItem('carrito') ?? '[]') // cadena a objeto JS
-  const [carrito, setCarrito] = useState<GuitarraCarritoInterface[]>(carritoLS) // indica que carrito sera un array de objetos de tipo GuitarraCarritoInterface
+  // const carritoLS = JSON.parse(localStorage.getItem('carrito') ?? '[]') // cadena a objeto JS
+  const [carrito, setCarrito] = useState<GuitarraCarritoInterface[]>([]) // indica que carrito sera un array de objetos de tipo GuitarraCarritoInterface
 
   const agregarCarrito = (guitarra: GuitarraCarritoInterface) => {
     // Comprobar si la guitarra ya esta en el carrito...
@@ -34,18 +34,18 @@ export const GuitarlaProvider = ({ children }: { children: React.ReactNode}) => 
       })
       // Se asigna al array
       setCarrito([...carritoActualizado])
-      localStorage.setItem('carrito', JSON.stringify( carrito ))
+      // localStorage.setItem('carrito', JSON.stringify( carrito ))
     } else {
       // En caso de que el articulo no exista, es nuevo y se agrega
       setCarrito([...carrito, guitarra])
-      localStorage.setItem('carrito', JSON.stringify( carrito ))
+      // localStorage.setItem('carrito', JSON.stringify( carrito ))
     }
   }
 
   const eliminarProducto = (id: number) => {
     const carritoActualizado = carrito.filter( producto => producto.id != id)
     setCarrito(carritoActualizado)
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+    // localStorage.setItem('carrito', JSON.stringify(carrito))
   }
 
   const actualizarCantidad = (guitarra: GuitarraCarritoInterface) => {
@@ -56,7 +56,7 @@ export const GuitarlaProvider = ({ children }: { children: React.ReactNode}) => 
       return guitarraState
     })
     setCarrito(carritoActualizado)
-    window.localStorage.setItem('carrito', JSON.stringify( carrito ))
+    // window.localStorage.setItem('carrito', JSON.stringify( carrito ))
   }
 
   const contextValue = {
