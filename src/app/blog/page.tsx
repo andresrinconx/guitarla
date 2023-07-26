@@ -16,7 +16,7 @@ export default async function Blog() {
   const {data: posts} = await getPosts()
   return (
     <div>
-      <h1 className='text-2xl font-extrabold text-[#d88506] text-center my-10'>Nuestros Posts</h1>
+      <h1 className='text-2xl font-extrabold text-[#d88506] text-center my-10'>Our Posts</h1>
 
       <div className='mx-20 mb-10 flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-7 md:mx-40'>
         {posts.map((post: PostInterface) => { // especificar el tipo de cada elemento 'guitarra'

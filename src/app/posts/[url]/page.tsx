@@ -19,6 +19,28 @@ export default async function Page({params}: {params: {url: string}}) {
   // actualizar metadata
   metadata.title = `GuitarLA: ${titulo}`
   metadata.description = `GuitarLA: ${contenido}`
+
+  //
+  const cambiarTitulo = () => {
+    if(titulo == 'Primeros Pasos para Aprender') {
+      return 'First Steps to Learn'
+    }
+    if(titulo == 'Como Elegir tu Próxima Guitarra') {
+      return 'How to choose your next guitar'
+    }
+    if(titulo == 'Cómo Cambiar una Cuerda de Guitarra') {
+      return 'How to Change a Guitar String'
+    }
+    if(titulo == 'Guitarras Eléctricas y Acústicas') {
+      return 'Electric and Acoustic Guitars'
+    }
+    if(titulo == 'Como Lograr un Buen Sonido') {
+      return 'How to get a good sound'
+    }
+    if(titulo == 'Partes de la Guitarra') {
+      return 'Guitar Parts'
+    }
+  }
   
   return (
     <div className='mb-10 mx-10 flex flex-col items-center md:flex-col md:mx-64'>
@@ -31,7 +53,7 @@ export default async function Page({params}: {params: {url: string}}) {
         />
       </div>
       <div className='md:flex md:flex-col md:justify-center'>
-        <h1 className='font-black text-2xl mb-5'>{titulo}</h1>
+        <h1 className='font-black text-2xl mb-5'>{cambiarTitulo()}</h1>
         <p>{contenido}</p>
       </div>
     </div>

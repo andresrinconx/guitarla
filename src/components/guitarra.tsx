@@ -20,7 +20,7 @@ export default function Guitarra({guitarra}: {guitarra: GuitarraInterface}) { //
         <Link 
           className='uppercase bg-black text-white px-3 py-2 text-center mx-2 hover:bg-[#d88506]' 
           href={`/guitarras/${url}`}
-        >Ver Producto</Link>
+        >See Product</Link>
       </div>
     </div>
   )

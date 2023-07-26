@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <div>
       <section className='my-5'>
-        <h1 className='text-2xl font-extrabold text-[#d88506] text-center my-10'>Nuestra Coleccion</h1>
+        <h1 className='text-2xl font-extrabold text-[#d88506] text-center my-10'>Our Collection</h1>
 
         <div className='mx-20 mb-10 flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-7 md:mx-40'>
           {guitarras.map((guitarra: GuitarraInterface) => { // especificar el tipo de cada elemento 'guitarra'
@@ -45,7 +45,7 @@ export default async function Home() {
       </section>
 
       <section className='my-5'>
-        <h1 className='text-2xl font-extrabold text-[#d88506] text-center my-10'>Nuestros Posts</h1>
+        <h1 className='text-2xl font-extrabold text-[#d88506] text-center my-10'>Our Posts</h1>
 
         <div className='mx-20 mb-10 flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-7 md:mx-40'>
           {posts.map((post: PostInterface) => { // especificar el tipo de cada elemento 'guitarra'

@@ -45,7 +45,7 @@ export default function Page({ params }: { params: { url: string } }) {
 
     // validar
     if (cantidad < 1) {
-      alert("Cantidad no válida")
+      alert("Invalid amount")
       return
     }
 
@@ -79,14 +79,14 @@ export default function Page({ params }: { params: { url: string } }) {
               <p className="text-[#d88506] font-extrabold text-2xl my-3">${precio}</p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <label htmlFor="cantidad">Cantidad</label>
+                <label htmlFor="cantidad">Amount</label>
 
                 <select
                   onChange={(e) => setCantidad(Number(e.target.value))}
                   id="cantidad"
                   className="px-4 py-2 border border-black"
                 >
-                  <option value="0">-- Seleccione --</option>
+                  <option value="0">-- Select --</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -97,7 +97,7 @@ export default function Page({ params }: { params: { url: string } }) {
                 <input
                   className="bg-black hover:bg-[#d88506] transition duration-500 ease-in-out uppercase text-white px-4 py-2"
                   type="submit"
-                  value={"Agregar al carrito"}
+                  value={"Add to cart"}
                 />
               </form>
             </div>

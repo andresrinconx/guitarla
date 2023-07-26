@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { GuitarraInterface } from '@/interfaces/Guitarra'
 
 export const metadata: Metadata = {
-  title: 'Tienda',
+  title: 'Store',
   description: 'Esta es la tienda',
 }
 
@@ -16,7 +16,7 @@ export default async function Tienda() {
   const {data: guitarras} = await getGuitarras()
   return (
     <div>
-      <h1 className='text-2xl font-extrabold text-[#d88506] text-center my-10'>Nuestra Coleccion</h1>
+      <h1 className='text-2xl font-extrabold text-[#d88506] text-center my-10'>Our Collection</h1>
 
       <div className='mx-20 mb-10 flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-7 md:mx-40'>
         {guitarras.map((guitarra: GuitarraInterface) => { // especificar el tipo de cada elemento 'guitarra'

@@ -7,22 +7,22 @@ export default function Footer() {
         <Link
           className='text-xl'
           href='/'
-        >Inicio</Link>
+        >Home</Link>
         <Link
           className='text-xl'
-          href='/nosotros'
-        >Nosotros</Link>
+          href='/us'
+        >About Us</Link>
         <Link
           className='text-xl'
           href='/blog'
         >Blog</Link>
         <Link
           className='text-xl'
-          href='/tienda'
-        >Tienda</Link>
+          href='/store'
+        >Store</Link>
       </nav>
       <div>
-        <p className='text-white text-xl text-center mt-5 md:mt-0'>Todos los derechos reservados {new Date().getFullYear()}</p>
+        <p className='text-white text-xl text-center mt-5 md:mt-0'>All rights reserved {new Date().getFullYear()}</p>
       </div>
     </div>
   )
